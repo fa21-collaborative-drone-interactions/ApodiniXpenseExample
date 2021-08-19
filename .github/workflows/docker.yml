@@ -75,7 +75,7 @@ jobs:
         run: echo ${{ steps.buildandpush.outputs.digest }}
   dockermanifest:
     needs: [dockerarm, dockeramd]
-    name: Create Multi Architecture Image 
+    name: Create Multi-CPU Architecture Image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
