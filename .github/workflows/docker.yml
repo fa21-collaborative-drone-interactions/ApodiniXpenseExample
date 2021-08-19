@@ -40,7 +40,6 @@ jobs:
       - name: Cleanup Self Hosted Runner
         if: always()
         run: |
-            shopt -s dotglob
             rm -rf *
             docker kill $(docker ps -q) || true
             docker system prune -a -f --filter "until=48h"
