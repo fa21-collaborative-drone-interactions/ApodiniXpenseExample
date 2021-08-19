@@ -3,9 +3,6 @@ name: Build Docker Image
 on:
   release:
     types: [published]
-  pull_request:
-    branches:
-      - develop
   workflow_dispatch:
 
 
@@ -87,5 +84,5 @@ jobs:
             docker manifest create ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:${{ steps.latesttag.outputs.tag }} \
               --amend ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:${{ steps.latesttag.outputs.tag }}-amd64 \
               --amend ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:${{ steps.latesttag.outputs.tag }}-arm64
-            docker manifest -p ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:latest
-            docker manifest -p ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:${{ steps.latesttag.outputs.tag }}
+            docker manifest push ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:latest
+            docker manifest push ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:${{ steps.latesttag.outputs.tag }}
