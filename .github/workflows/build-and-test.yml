@@ -42,7 +42,7 @@ jobs:
     name: Linux WebService ${{ matrix.linux }}
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/apodini/swift:nightly
+      image: swiftlang/swift:nightly-5.5-${{ matrix.linux }}
     strategy:
       matrix:
         linux: [bionic, focal, amazonlinux2, centos8]
