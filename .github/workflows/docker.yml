@@ -2,10 +2,7 @@ name: Build Docker Image
 
 on:
   release:
-    types: [published]
-  pull_request:
-    branches:
-      - develop
+    types: [published
   workflow_dispatch:
 
 
