@@ -14,6 +14,9 @@ jobs:
     name: Docker Build and Push ARM64 Image
     runs-on: ARM64
     steps:
+      - name: Cleanup Self Hosted Runner
+        run: |
+            rm -rf "${{ github.workspace }}"
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Get latest tag
@@ -40,7 +43,7 @@ jobs:
       - name: Cleanup Self Hosted Runner
         if: always()
         run: |
-            rm -rf *
+            rm -rf "${{ github.workspace }}"
             docker kill $(docker ps -q) || true
             docker system prune -a -f --filter "until=48h"
   dockeramd:  
