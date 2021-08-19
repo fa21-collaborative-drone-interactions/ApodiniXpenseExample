@@ -29,7 +29,7 @@ jobs:
     name: Linux ARM WebService
     runs-on: ARM64
     container:
-      image: ghcr.io/apodini/swift:nightly
+      image: ghcr.io/apodini/swift@sha256:53b4295f95dc1eafcbc2e03c5dee41839e9652ca31397b9feb4d8903fe1b54ea
     defaults:
       run:
         working-directory: ./WebService
