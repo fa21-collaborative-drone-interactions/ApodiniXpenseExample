@@ -61,7 +61,7 @@ jobs:
           context: .
           file: ./WebService/Dockerfile
           push: true
-          tags: ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:latest-arm64,ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:${{ steps.latesttag.outputs.tag }}-arm64
+          tags: ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:latest-amd64,ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:${{ steps.latesttag.outputs.tag }}-amd64
       - name: Image digest
         run: echo ${{ steps.buildandpush.outputs.digest }}
   dockermanifest:
