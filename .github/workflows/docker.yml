@@ -15,8 +15,8 @@ jobs:
     runs-on: ARM64
     steps:
       - name: Cleanup Self Hosted Runner
-        run: |
-            rm -rf "${{ github.workspace }}"
+        run: 
+            rm -rf "${{ github.workspace }}/{*,.*}"
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Get latest tag
