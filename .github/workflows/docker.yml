@@ -37,6 +37,12 @@ jobs:
           tags: ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:latest-arm64,ghcr.io/fa21-collaborative-drone-interactions/xpensewebservice:${{ steps.latesttag.outputs.tag }}-arm64
       - name: Image digest
         run: echo ${{ steps.buildandpush.outputs.digest }}
+      - name: Cleanup Self Hosted Runner
+        run: |
+            shopt -s dotglob
+            rm -rf *
+            docker kill $(docker ps -q) || true
+            docker system prune -a -f --filter "until=48h"
   dockeramd:  
     name: Docker Build and Push AMD64 Image
     runs-on: ubuntu-latest
