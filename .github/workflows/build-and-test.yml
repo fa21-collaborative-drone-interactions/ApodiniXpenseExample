@@ -41,6 +41,10 @@ jobs:
         run: swift --version
       - name: Build and test
         run: swift build -Xswiftc -Xfrontend -Xswiftc -sil-verify-none
+      - name: Cleanup Self Hosted Runner
+        run: |
+            shopt -s dotglob
+            rm -rf *
   linuxwebservices:
     name: Linux WebService ${{ matrix.linux }}
     runs-on: ubuntu-latest
