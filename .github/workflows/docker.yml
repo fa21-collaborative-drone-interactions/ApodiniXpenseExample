@@ -38,6 +38,7 @@ jobs:
       - name: Image digest
         run: echo ${{ steps.buildandpush.outputs.digest }}
       - name: Cleanup Self Hosted Runner
+        if: always()
         run: |
             shopt -s dotglob
             rm -rf *

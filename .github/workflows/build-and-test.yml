@@ -42,6 +42,7 @@ jobs:
       - name: Build and test
         run: swift build -Xswiftc -Xfrontend -Xswiftc -sil-verify-none
       - name: Cleanup Self Hosted Runner
+        if: always()
         run: |
             shopt -s dotglob
             rm -rf *
