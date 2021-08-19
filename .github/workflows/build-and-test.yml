@@ -34,6 +34,9 @@ jobs:
       run:
         working-directory: ./WebService
     steps:
+      - name: Cleanup Self Hosted Runner
+        if: always()
+        run: rm -rf "${{ github.workspace }}"
       - uses: actions/checkout@v2
       - name: Install libsqlite3
         run: apt-get update && apt-get install -y --no-install-recommends libsqlite3-dev
@@ -41,9 +44,6 @@ jobs:
         run: swift --version
       - name: Build and test
         run: swift build -Xswiftc -Xfrontend -Xswiftc -sil-verify-none
-      - name: Cleanup Self Hosted Runner
-        if: always()
-        run: rm -rf "${{ github.workspace }}"
   linuxwebservices:
     name: Linux WebService ${{ matrix.linux }}
     runs-on: ubuntu-latest
