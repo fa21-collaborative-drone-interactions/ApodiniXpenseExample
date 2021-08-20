@@ -11,7 +11,7 @@ import Apodini
 
 struct UserComponent: Component {
     var content: some Component {
-        Group("user") {
+        Group("users") {
             CreateUser()
         }
         Group("login") {

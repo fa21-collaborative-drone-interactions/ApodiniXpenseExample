@@ -14,7 +14,7 @@ struct TransactionComponent: Component {
     @PathParameter var transactionId: UUID
     
     var content: some Component {
-        Group("transaction") {
+        Group("transactions") {
             CreateTransaction()
             GetAllTransactions()
             

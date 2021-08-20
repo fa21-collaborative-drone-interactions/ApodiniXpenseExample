@@ -13,7 +13,7 @@ struct AccountComponent: Component {
     @PathParameter var accountId: UUID
 
     var content: some Component {
-        Group("account") {
+        Group("accounts") {
             GetAllAccounts()
             CreateAccount()
 
