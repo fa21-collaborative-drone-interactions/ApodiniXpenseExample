@@ -17,18 +17,18 @@ WORKDIR /build
 COPY . .
 
 # Build everything, with optimizations
-RUN swift build -c release --package-path ./WebService
+RUN swift build --package-path ./WebService
 
 # Switch to the staging area
 WORKDIR /staging
 
 # Copy main executable to staging area
-RUN cp "$(swift build --package-path /build/WebService -c release --show-bin-path)/WebService" ./
+RUN cp "$(swift build --package-path /build/WebService --show-bin-path)/WebService" ./
 
 # Copy resources from the resources directory if the directories exist
 # Ensure that by default, neither the directory nor any of its contents are writable.
-RUN [ -d "$(swift build --package-path /build/WebService -c release --show-bin-path)/WebService_WebService.resources" ] \
-    && mv "$(swift build --package-path /build/WebService -c release --show-bin-path)/WebService_WebService.resources" ./ \
+RUN [ -d "$(swift build --package-path /build/WebService --show-bin-path)/WebService_WebService.resources" ] \
+    && mv "$(swift build --package-path /build/WebService --show-bin-path)/WebService_WebService.resources" ./ \
     && chmod -R a-w ./WebService_WebService.resources \
     || echo No resources to copy
 
