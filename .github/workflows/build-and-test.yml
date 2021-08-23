@@ -34,9 +34,6 @@ jobs:
       run:
         working-directory: ./WebService
     steps:
-      - name: Cleanup Self Hosted Runner
-        if: always()
-        run: sudo rm -rf "${{ github.workspace }}"/{*,.*} || true
       - uses: actions/checkout@v2
       - name: Cache .build
         uses: actions/cache@v2
