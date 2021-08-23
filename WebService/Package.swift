@@ -12,7 +12,7 @@ let package = Package(
         .executable(name: "WebService", targets: ["WebService"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Apodini/Apodini.git", .revision("d68e398166acc43308fecd5ed0529a7bca66dc9e")),
+        .package(url: "https://github.com/Apodini/Apodini.git", .upToNextMinor(from: "0.5.0")),
         .package(name: "Shared", path: "../Shared")
     ],
     targets: [
